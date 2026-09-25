@@ -11,37 +11,37 @@ class Program
         
         do
         {
-            Console.Write("Hoeveel getallen wil je ingeven?: ");
+            Console.Write("How many numbers do you want to input?: ");
             isValidNum = int.TryParse(Console.ReadLine(), out maxNums);
         }
         while(!isValidNum || maxNums < 0);
 
         int[] numbers = new int[maxNums];
 
-        Console.WriteLine("Geef hier de verschillende getallen in");
+        Console.WriteLine("Type the different numbers here: ");
 
         for(int i = 0; i < numbers.Length; i++)
         {
-            Console.Write("Getal " + (i+1) + ": ");
+            Console.Write("Number " + (i+1) + ": ");
             isValidNum = int.TryParse(Console.ReadLine(), out numbers[i]);
             while(!isValidNum || numbers[i] < 0)
             {
-                Console.Write("Foute invoer! Probeer opnieuw!: ");
+                Console.Write("Wrong input! TRY AGAIN: ");
                 isValidNum = int.TryParse(Console.ReadLine(), out numbers[i]);
             }
         }
         Array.Sort(numbers);
 
-        Console.WriteLine("Het minimum van deze getallen is {0} en het maximum {1}.", numbers[0], numbers[numbers.Length - 1]);
+        Console.WriteLine("The minimum of these numbers is {0} and the maximum {1}.", numbers[0], numbers[numbers.Length - 1]);
 
         foreach(int currentNum in numbers)
         {
             sum = sum + currentNum;
             average = sum/numbers.Length;
         }
-        Console.WriteLine("Het gemiddelde is: {0}", average);
+        Console.WriteLine("The average is: {0}", average);
 
-        Console.WriteLine("Druk op een toets om af te sluiten...");
+        Console.WriteLine("Press on any key to close...");
         Console.ReadKey();
     }
 }
